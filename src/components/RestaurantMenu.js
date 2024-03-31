@@ -19,11 +19,14 @@ const RestaurantMenu = () => {
     );
 
     const json = await data.json();
+    // console.log("json" , json);
 
-    setmenu(json?.data?.cards[0]?.card?.card?.info);
+    setmenu(json?.data?.cards[2]?.card?.card?.info);
+
     const fetchedCategories =
-      json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+      json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
+      // console.log('menu',menu);
     setCategories(fetchedCategories);
 
     const filteredCategories = fetchedCategories.filter((c) => {
@@ -37,9 +40,9 @@ const RestaurantMenu = () => {
 
   };
 
-  const setDishes = (index) =>{
-    setShowDishes(index);
-  }
+  // const setDishes = (index) =>{
+  //   setShowDishes(index);
+  // }
 
   return menu?.length == 0 ? (
     <Shimmer />
@@ -48,11 +51,11 @@ const RestaurantMenu = () => {
       <div className=" ">
         <div className="  flex justify-between p-2">
           <div className=" flex flex-col ">
-            <h1 className=" font-semibold text-lg ">{menu.name}</h1>
+            <h1 className=" font-semibold text-lg ">{menu?.name}</h1>
             <p className=" text-sm font-thin ">
-              {menu.cuisines ? menu.cuisines.join(",") : " "}
+              {menu?.cuisines ? menu?.cuisines.join(",") : " "}
             </p>
-            <p>{menu.areaName}</p>
+            <p>{menu?.areaName}</p>
           </div>
           <div className="flex flex-col">
             <p>

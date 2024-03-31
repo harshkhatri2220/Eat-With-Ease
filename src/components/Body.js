@@ -22,34 +22,17 @@ const Body = () => {
 
     const json = await apiData.json();
 
-    console.log(json);
+    // console.log("json" , json );
     setRestaurants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setdummyRestaurants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     // console.log("restaurants" , restaurants)
   };
 
-  // const fetchUpdateData = async()=>{
-  //   const dataToPost = { lat: "21.1938475", lng: "81.3509416" };
-  //   const response = await fetch(
-  //     "https://www.swiggy.com/dapi/restaurants/list/update",
-  //     {
-  //       //update data
-  //       method: "POST",
-  //       mode: "cors",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         // 'Content-Type': 'application/x-www-form-urlencoded',
-  //       },
-  //       body: JSON.stringify(dataToPost), // body data type must match "Content-Type" header
-  //     }
-  //   );
-
-  //   console.log(response);
-  // }
+ 
   return restaurants?.length === 0 ? (
     <Shimmer /> //conditional rendering
   ) : (
@@ -58,8 +41,9 @@ const Body = () => {
         <div className="">
           <input
             className=" border border-solid border-black mx-2 px-1 "
+            data-testid="search"
             type="text"
-            // value={searchInput}
+            value={searchInput}
             onChange={(e) => {
               setsearchInput(e.target.value);
             }}

@@ -1,7 +1,7 @@
 import { redirect } from "react-router-dom";
 
 const ResCard = ({ resData }) => {
-  console.log("resData" , resData);
+  // console.log("resData" , resData);
   //Destructuring is done by javascript not React
   const { info } = resData;
   return (
